@@ -1,0 +1,40 @@
+<image src="https://mp-5f107cca-e226-4561-9211-0386fbee8427.cdn.bspapp.com/yigo/ljx/images/kefubeijing.png" class="bg"></image>
+<view class="out">
+
+   
+<block wx:for="{{list}}" wx:key="index" class="txt">
+
+<!-- 包裹图片+两行文字 id="{{index}}"是给按下了那个item记录-->
+
+<view class="view_tupian_wenzi" bindtap="click" id="{{index}}"   data-index="{{index}}">
+
+  <image class="image_1" src="" />
+  
+  <!-- 包裹两行文字 -->
+  <view class="view_wenzi2">
+  
+    <text>{{item.modl}}</text>
+    
+    <text class="text_small">{{item.value}}</text>
+    
+  </view>
+  
+</view>
+
+</block>
+
+</view>
+<view class="look" wx:if="{{isshow}}" bind:tap="clickout">
+  <view class="out1">
+  
+    
+  
+  <view class="tx">
+    <text style="font-size: 20px;margin-left: 280rpx;">{{title}}</text>
+   <text>{{neir}}</text>
+  </view>
+
+<button></button>
+</view>
+</view>
+ 

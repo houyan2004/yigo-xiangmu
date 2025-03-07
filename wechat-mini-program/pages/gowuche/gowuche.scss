@@ -1,0 +1,335 @@
+.body {
+  position: relative;
+  width: 100vw;
+  height: 30vh;
+  opacity: 1;
+  background: linear-gradient(180deg, rgba(35, 155, 93, 1) 0%, rgba(35, 155, 93, 0) 100%);
+
+  .text1 {
+    position: fixed;
+    left: 44rpx;
+    top: 144rpx;
+    width: 196rpx;
+    height: 62rpx;
+    opacity: 1;
+    font-size: 60rpx;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 1);
+  }
+
+  .fenxian {
+    position: fixed;
+    left: 412rpx;
+    top: 174rpx;
+    width: 126rpx;
+    height: 46rpx;
+    opacity: 1;
+    border-radius: 20rpx;
+    background: rgba(35, 155, 93, 1);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+
+    .text {
+      position: relative;
+      top: -9rpx;
+      color: rgba(255, 255, 255, 1);
+    }
+
+    .ipic {
+      width: 44rpx;
+      height: 35rpx;
+      margin: 9rpx 0 0 9rpx;
+    }
+  }
+
+  .shanchu {
+    position: fixed;
+    left: 542rpx;
+    top: 174rpx;
+    width: 94rpx;
+    height: 48rpx;
+    opacity: 1;
+    border-radius: 20rpx;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    text-align: center;
+  }
+
+  .line {
+    position: fixed;
+    left: 636rpx;
+    top: 195rpx;
+    width: 18px;
+    height: 0px;
+    opacity: 1;
+    transform: rotate(90deg);
+    border: 0.5px solid rgba(255, 255, 255, 1);
+  }
+
+  .cha {
+    position: fixed;
+    left: 670rpx;
+    top: 174rpx;
+  }
+
+  .content {
+    position: absolute;
+    left: 0rpx;
+    top: 232rpx;
+    width: 100vw;
+    min-height: 50vh;
+    z-index: 1;
+    opacity: 1;
+    border-radius: 10px 10px 0px 0px;
+    background: rgba(255, 255, 255, 1);
+  }
+
+}
+
+.dizhi {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 15rpx;
+  padding-bottom: 70rpx;
+  position: relative;
+  width: 656rpx;
+  min-height: 178rpx;
+  margin: 30rpx auto;
+  margin-bottom: 100rpx;
+  opacity: 1;
+  border-radius: 20rpx;
+  background: rgba(242, 255, 247, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+  .text {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    flex-wrap: wrap;
+    z-index: 2;
+
+    .xianxi {
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  .pic {
+    position: absolute;
+    right: -15rpx;
+    bottom: -15rpx;
+    width: 198rpx;
+    height: 177.08rpx;
+    opacity: 0.8;
+    transform: scaleX(-1);
+    z-index: 1;
+  }
+
+  .tishi {
+    position: absolute;
+    bottom: 15rpx;
+    text-align: center;
+    width: 358rpx;
+    height: 52rpx;
+    opacity: 1;
+    border-radius: 10rpx;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.quanbu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 656rpx;
+  margin: 0 auto;
+
+  .qutx {
+    position: absolute;
+    top: -65rpx;
+    left: 0;
+    z-index: 4;
+    font-size: 30px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 1);
+  }
+
+  .box {
+    margin: 20rpx 0;
+    position: relative;
+    box-sizing: border-box;
+    padding: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 656rpx;
+    height: 116px;
+    opacity: 1;
+    border-radius: 10px;
+    background: rgba(242, 255, 247, 1);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+    .img {
+      width: 90px;
+      height: 89px;
+      opacity: 1;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      .pic{
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .title {
+      position: relative;
+      top: 13rpx;
+      width: 380rpx;
+      height: 80%;
+      margin-bottom: 60rpx;
+      .text{
+        font-weight: 700;
+        text-decoration: underline; /* 设置下划线 */
+      }
+    }
+
+    .jiage {
+      position: absolute;
+      bottom: 28rpx;
+      left: 250rpx;
+    }
+
+    .shuliang {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      bottom: 28rpx;
+      right: 20rpx;
+
+      .jia {
+        width: 48rpx;
+        height: 48rpx;
+      }
+
+      .text {
+        font-size: 48rpx;
+        margin: 0 15rpx 0 2rpx;
+        font-weight: 900;
+        font-style: italic;
+        transform: skew(10deg);
+      }
+    }
+
+    .checkbox {
+      z-index: 100;
+    }
+  }
+}
+
+.box2 {
+  box-sizing: border-box;
+  padding: 20rpx;
+  width: 656rpx;
+  height: 398rpx;
+  margin-bottom: 60rpx;
+  opacity: 1;
+  border-radius: 20rpx;
+  background: #F2FFF7;
+  box-shadow: 0px 2px 4px #000000;
+
+  .box_item {
+    display: flex;
+    margin: 10rpx 0;
+    justify-content: space-between;
+    align-items: center;
+
+    .text {
+      font-size: 40rpx;
+      font-weight: 700;
+      line-height: 56tpx;
+      color: rgba(0, 0, 0, 1);
+    }
+
+    .jiage {}
+
+    .text-youhui {
+      font-size: 36rpx;
+      font-weight: 300;
+      line-height: 50rpx;
+      color: rgba(0, 0, 0, 1);
+    }
+  }
+
+  .heji {
+    margin-top: 30rpx;
+    margin-right: 20rpx;
+    display: flex;
+    justify-content: flex-end;
+
+    .text {
+      position: relative;
+      left: 25rpx;
+      font-size: 48rpx;
+      font-weight: 700;
+      line-height: 67.2rpx;
+      color: rgba(0, 0, 0, 1);
+    }
+  }
+}
+
+.zhifu {
+  width: 100%;
+  height: 128rpx;
+  opacity: 1;
+  border-radius: 5px 5px, 0px, 0px;
+  background: #F2FFF7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+
+  .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .text {
+      font-size: 48rpx;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 1);
+    }
+  }
+
+  .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 168rpx;
+      height: 70rpx;
+      opacity: 1;
+      border-radius: 20rpx;
+      background: #FF8D1A;
+      font-size: 48rpx;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 1);
+    }
+    .btn_hover{
+      background: #aa5f13;
+    }
+  }
+}

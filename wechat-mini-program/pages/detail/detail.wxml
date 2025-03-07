@@ -1,0 +1,80 @@
+<view class="outs">
+   <text class="title">订单{{ding.status > 2 ? '已完成' : '进行中'}}</text>
+   <view class="out">
+    <view class="hint">
+      <text style="font-size:40rpx ">感谢您对颐购的信任，期待您再次光临</text>
+      <text style="font-size: 30rpx;">温馨提示：请厉行节约，拒绝浪费</text>
+    </view>
+      <view class="product">
+        <image src="{{presrc}}{{ding.proimage}}"></image>
+        <view class="info">
+         <text class="title1">{{ding.protitle}}</text>
+         <text class="desc">{{intorduce}}</text>
+        </view>
+        <view class="status">
+         <text class="packge">包裹*{{ding.quantity}}</text>
+         
+        </view>
+      </view>
+      <view class="foot">
+         <view class="money">
+           <view class="num">
+            <text>商品总额:</text>
+            <text style="color: red;">￥{{ding.totalprice}}元</text>
+           </view>
+           <view class="num">
+            <text>配送费:</text>
+            <text style="color: red;">￥{{peis}}元</text>
+           </view>          
+         </view>
+         <view class="totals">
+            <text>合计：</text>
+            <text style="color: red;">￥{{ding.totalprice}}元</text>
+         </view>
+      </view>
+      <view class="relations">
+     <view class="pm">
+      <van-icon name="comment-o" size="80rpx" color="green"/>
+      <text>评价</text>
+     </view>
+     <view class="pm">
+      <van-icon name="shop-o"  size="80rpx" color="green"/>
+      <text>联系平台</text>
+     </view>
+     <view class="pm">
+      <van-icon name="records-o"  size="80rpx" color="green"/>
+      <text>参与问卷</text>
+     </view>
+     <view class="pm">
+      <van-icon name="phone-circle-o" size="80rpx" color="green"/>
+      <text>联系骑手</text>
+     </view>
+   </view>
+    <view class="txt">
+      <text style="font-size: 50rpx;">72小时坏品包退</text>
+      <text>如发现菜品损坏，可在线申请赔理</text>
+    </view>
+   </view>
+    <view class="oders">
+      <view class="oder">
+        <text>订单编号</text>
+        <text>{{ding.id}}</text>
+      </view>
+      <view class="oder">
+        <text>下单时间</text>
+        <text>{{ding.createtime}}</text>
+      </view>
+      <view class="oder">
+        <text>支付方式</text>
+        <text>微信支付</text>
+      </view>
+      <view class="oder">
+        <text>期望时间</text>
+        <text>立即配送</text>
+      </view>
+    
+    </view>
+  <view class="btn">
+    <van-button bind:tap="go_gowuche" color="#d1eec8" size="large">再来一单</van-button>
+  </view>
+</view>

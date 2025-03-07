@@ -1,0 +1,81 @@
+<view class="product-page">
+  <swiper class="swiper" indicator-dots autoplay indicator-active-color="#429488">
+    <swiper-item wx:for="{{Product_detail_img}}" wx:key="index" class="swiper-item">
+      <image class="pic" src="{{item}}" mode="heightFix" />
+    </swiper-item>
+  </swiper>
+  <view class="boxJiaXiao">
+    <jiage class="jiage" jiage="{{product_detail_data.proprice}}"></jiage>
+    <text class="text">销量5.3万</text>
+  </view>
+
+  <view class="content_item1">
+    <view class="title">{{product_detail_data.protitle}}</view>
+    <view class="title_xiangqing">
+      <view class="xiangqing_item" wx:for="{{product_detail_data.prodetail}}" wx:key="index">{{item}}</view>
+    </view>
+    <view class="line"></view>
+    <view class="peisongdizhi">
+      <view class="left">配送至</view>
+      <view class="right">
+        <view bind:tap="xuanzedizhi_bind" hover-class="dizhi_hover" class="dizhi">{{dishixingxi}}</view>
+        <view class="text">预计{{"今日17:00"}}前送达</view>
+      </view>
+    </view>
+    <view bind:tap="jiaoBao_showPopup" class="jiabao">
+      <view class="text">价格保护·闪电退款·缺货退·72小时坏品包退·</view>
+      <image class="pic" src="/hy/image/cion/进入.png" mode="" />
+    </view>
+  </view>
+  <view class="content_item2">
+    <view class="title">商品详情</view>
+    <view class="bord">
+      <view wx:for="{{detail_xingxi}}" wx:key="index" class="textitem">
+      <text style="font-weight: 700;">{{item.key}}:</text>
+      <text> {{item.value}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<van-goods-action>
+  <van-goods-action-icon bind:tap="go_index_bind" icon="wap-home-o" text="首页" />
+  <van-goods-action-icon bind:tap="go_gowuche_bind" icon="cart-o" text="购物车" info="{{gowuche_num==0?'':gowuche_num}}" />
+  <van-goods-action-button bind:tap="do_grgwc_bind" plain color="#f0933c" text="加入购物车" type="warning" />
+  <van-goods-action-button bind:tap="lijigomai_bind" color="#f0933c" text="立即购买" />
+</van-goods-action>
+
+<van-popup show="{{ jianbao_show }}" position="bottom" custom-style="border-radius: 20rpx 20rpx 0 0;height: 75%;" bind:close="jianBaoOnClose">
+  <view class="jiaobao_body">
+    <view class="title">保障</view>
+    <view class="item">
+      <view class="tle">价格保护</view>
+      <image class="icon" src="/hy/image/cion/baozhang/1.png" mode="" />
+      <view class="content">诚信用户申请退款，经平台审核退款通过后，享受闪电退款到账服务。</view>
+    </view>
+    <view class="item">
+      <view class="tle">闪电退款</view>
+      <image class="icon" src="/hy/image/cion/baozhang/2.png" mode="" />
+      <view class="content">如商品购买当日23点前降价，购买当日23点前可在“订单详情-价格保护”入口申请退还差价红包。</view>
+    </view>
+    <view class="item">
+      <view class="tle">缺货退</view>
+      <image class="icon" src="/hy/image/cion/baozhang/3.png" mode="" />
+      <view class="content">购买后如发生商家缺货，平台即时给您办理退款。</view>
+    </view>
+    <view class="item">
+      <view class="tle">72小时坏品包退</view>
+      <image class="icon" src="/hy/image/cion/baozhang/4.png" mode="" />
+      <view class="content">商品送达后72小时内，发现腐烂/变质等情况，提供有效凭证后，平台24小时内响应审核退款。</view>
+    </view>
+    <view class="item">
+      <view class="tle">不支持7天无理由</view>
+      <image class="icon" src="/hy/image/cion/baozhang/5.png" mode="" />
+      <view class="content">此商品为生鲜/冷藏/冷冻类食品，不支持7天无理由退货，收货后请注意妥善保存。</view>
+    </view>
+    <button bind:tap="on_jiabao" class="btn" hover-class="btn_active" size="default">关闭</button>
+  </view>
+</van-popup>
+
+
+

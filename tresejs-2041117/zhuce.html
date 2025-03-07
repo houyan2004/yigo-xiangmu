@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>颐购注册</title>
+    <style>
+        /* 整体页面样式 */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('./public/pic/112360863.gif');
+            /* 假设这是万圣节背景图片 */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 定义淡入动画关键帧 */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* 注册表单容器样式 */
+        .register-wrapper {
+            width: 300px;
+            background-color: rgba(45, 34, 36, 0.5);
+            /* 浅粉色，类似胭脂粉，带有透明度 */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 1s ease;
+            /* 添加淡入动画，持续时间1秒，缓动效果为ease */
+        }
+
+        /* 页面标题样式 */
+        .page-header {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* 输入框组样式 */
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        /* 输入框标签样式 */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ffffff;
+            /* 白色字体 */
+        }
+
+        /* 输入框样式 */
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #FF69B4;
+            /* 亮粉色，类似胭脂粉 */
+        }
+
+        /* 提交按钮样式 */
+        .submit-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #FF69B4;
+            /* 亮粉色，类似胭脂粉 */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #FF1493;
+            /* 更鲜艳的粉色，按钮悬停时的颜色 */
+        }
+
+        /* 错误弹窗整体样式 */
+        .error-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            z-index: 999;
+            animation: fadeInOut 2s ease forwards;
+        }
+
+        /* 弹窗内容样式 */
+        .popup-content p {
+            color: white;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        /* 定义淡入淡出动画关键帧 */
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module">
+        import http from "./src/utils/api.js";
+        const { createApp } = Vue;
+        const apiBaseUrl = __API_BASE_URL__;
+        console.log("apiBaseUrl:", apiBaseUrl);
+
+        createApp({
+            data() {
+                return {
+                    username: '',
+                    password: '',
+                    confirmPassword: '',
+                    errorMessage: '',
+                    isSubmitting: false
+                };
+            },
+            methods: {
+                async do_submit() {
+                    this.errorMessage = '';
+                    this.isSubmitting = true;
+                    // 简单验证用户名非空
+                    if (this.username === '') {
+                        this.errorMessage = '用户名不能为空';
+                        this.isSubmitting = false;
+                        this.$nextTick(() => {
+                            // 手动触发页面更新后，等待DOM更新完成再继续
+                            setTimeout(() => {
+                                this.errorMessage = '';
+                            }, 2000);
+                        });
+                        return;
+                    }
+                    // 简单验证密码非空且两次输入一致
+                    if (this.password === '') {
+                        this.errorMessage = '密码不能为空';
+                        this.isSubmitting = false;
+                        this.$nextTick(() => {
+                            setTimeout(() => {
+                                this.errorMessage = '';
+                            }, 2000);
+                        });
+                        return;
+                    }
+                    if (this.password!== this.confirmPassword) {
+                        this.errorMessage = '两次输入的密码不一致，请重新输入';
+                        this.isSubmitting = false;
+                        this.$nextTick(() => {
+                            setTimeout(() => {
+                                this.errorMessage = '';
+                            }, 2000);
+                        });
+                        return;
+                    }
+
+                    try {
+                        const res = await http.post(apiBaseUrl + '/zhuce_h', {
+                            username: this.username,
+                            password: this.password
+                        });
+                        console.log(res);
+                        if (res.code === 1) {
+                            alert(`注册成功，请登录`);
+                            window.location.href = '/';
+                        } else {
+                            alert(`${res.msg}`);
+                        }
+                    } catch (e) {
+                        console.error("请求失败", e);
+                    } finally {
+                        this.isSubmitting = false;
+                    }
+                }
+            }
+        }).mount('#index');
+    </script>
+</head>
+
+<body id="index">
+<div class="register-wrapper">
+    <header class="page-header" style="position: relative">
+        <h1>欢迎注册颐购</h1>
+        <a href="/" style="color: #FF69B4; position: absolute; right: 10px; bottom: -35px;">登录</a>
+    </header>
+    <form id="registerForm">
+        <div class="input-group">
+            <label for="username">用户名</label>
+            <input type="text" id="username" placeholder="请输入用户名" v-model="username">
+        </div>
+        <div class="input-group">
+            <label for="password">密码</label>
+            <input type="password" id="password" placeholder="请输入密码" v-model="password" >
+        </div>
+        <div class="input-group">
+            <label for="confirm-password">确认密码</label>
+            <input type="password" id="confirm-password" placeholder="请再次输入密码" v-model="confirmPassword">
+        </div>
+        <button :disabled="isSubmitting" @click="do_submit" class="submit-button">注册</button>
+    </form>
+</div>
+<div id="error-popup" class="error-popup" v-if="errorMessage">
+    <div class="popup-content">
+        <p>{{ errorMessage }}</p>
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<view class="content">
+  <block wx:for="{{ listDatas }}" wx:key="index">
+    <view class="list-content" bindtap="onListClick" data-index="{{ index }}">
+      <view>
+        <text>{{ item.list_name }}</text>
+      </view>
+      <view>
+        <iconfont
+          class="iconfont {{selected[index] ? 'icon-arrow-down' : 'icon-right'}}"
+        ></iconfont>
+      </view>
+    </view>
+    <view class="list-text {{selected[index] ? '' : 'hidden-content'}}">
+      <view>
+        <text selectable="true">{{ item.list_content }}</text>
+      </view>
+    </view>
+  </block>
+</view>

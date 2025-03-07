@@ -1,0 +1,112 @@
+<view class="out">
+  <view class="sele">
+    <view class="head" >
+      <image src="{{hint}}" bindload="handleImageLoad" binderror="handleImageError"/>
+      <view class="new">
+        <text>{{title}}</text>
+        <text>{{phone}}</text>
+      </view>
+       
+   </view>
+   <view class="name1">
+     <text>{{name}}</text>
+   </view>
+   <view class="set">
+    <navigator url="../../pages/selct/selct">
+      <image src="{{shezhi}}"></image>
+    </navigator>
+   </view>
+   <view class="">
+   </view>
+  </view> 
+  <view class="pic">
+     <image src="{{vip}}"/>
+     <text>注册会员享受更多优惠</text>
+  </view>
+  <view class="order">
+ 
+   <view class="first">
+     <text>我的订单</text>
+     <view class="all">
+      <navigator url="/pages/order/order"> 
+        <text>全部订单</text>
+        <van-icon name="arrow" data-item="0" bind:tap="changepage"/>
+      </navigator>
+     </view> 
+   </view>
+   <view class="second">
+      
+       <view class="out" data-item="1" bind:tap="changepage"  >
+        <van-icon name="pending-payment" size="60rpx"  data-item="1"/>
+         <text data-item="1">待付款</text>
+       </view>
+      <view class="out" bind:tap="changepage" data-item="2"  >
+        <van-icon name="underway-o" size="60rpx" data-item="2"  />
+        <text data-item="2" >待发货</text>
+      </view>
+     
+      <view class="out" bind:tap="changepage" data-item="3" >
+        <van-icon name="logistics" size="60rpx"  />
+        <text>待收货</text>
+      </view>
+      
+      <view class="out" bind:tap="changepage" data-item="4" >
+        <van-icon name="comment-circle-o" size="60rpx"  />
+        <text>待评价</text>
+      </view>
+      <view class="out" bind:tap="changepage" data-item="5" >
+        <van-icon name="gold-coin-o" size="60rpx"  />
+        <text>退款</text>
+      </view>
+      
+   </view>
+  
+</view>
+ 
+</view>
+ 
+<view class="serves">
+   
+   <view class="serve">
+    <text class="word">我的服务</text>
+      <view class="wook">
+        <navigator url="/pages/site/site">
+         <van-icon name="map-marked" size="80rpx" color="green"/>
+          <text>收货地址</text>
+        </navigator>
+        <navigator url="/pages/gowuche/gowuche">
+          <van-icon name="like" size="80rpx" color="green" />
+          <text>我的购物车</text>
+        </navigator>
+        <navigator url="/pages/robots/robots">
+          <van-icon name="fire" size="80rpx" color="green"/>
+          <text>客服</text>
+        </navigator>
+        <navigator url="/pages/hidea/hidea">
+          <van-icon name="chat"  size="80rpx" color="green"/>
+          <text>反馈记录</text>
+        </navigator>
+    </view>
+  </view>
+
+</view>
+<view class="recomm">
+  <view class="pic">
+    <image src="{{tit}}" class="picss"></image>
+    </view>
+    <view class="nav2_box" >
+      <view class="item" wx:for="{{productList}}" wx:key="id">
+        <view class="img">
+          <image class="pic" src="{{url_bash}}{{item.imgurl}}" mode="" />
+        </view>
+        <view class="title">
+          <view   data-event="{{index}}" class="text">{{item.title}}</view>
+          <jiage class="jiage" jiage="{{item.price}}"></jiage>
+          <view class="gou">
+            <view bind:tap="go_gowuche_bind" data-event="{{index}}" class="text">加入购物车</view>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>
+<footer></footer>

@@ -1,0 +1,31 @@
+.content {
+  padding: 15rpx 15rpx 0 15rpx;
+  font-size: 30rpx;
+  height: 100%;
+  color: #808080;
+  background: linear-gradient(180deg, rgb(119, 207, 161) 0%, rgba(255, 255, 255, 0) 100%);
+  .list-content {
+    margin-bottom: 30rpx;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    line-height: 60rpx;
+    border-bottom: 1rpx solid #ddd;
+  }
+  .list-text {
+    padding-top: 15rpx;
+    transition: all 0.5s ease;
+    text-indent: 40rpx;
+    display: block;
+  }
+  .hidden-content {
+   
+    display: none;
+  }
+}
+
+ 
+
+ 
+
+ 

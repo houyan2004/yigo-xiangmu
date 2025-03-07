@@ -1,0 +1,104 @@
+<!--pages/dish/dish.wxml-->
+<view class="dish_1">
+  
+  <view class="dish_1_text">菜谱搜索</view>
+   
+</view>
+<view class="dish_2">
+  <view class="dish_2_search">
+    <view class="dish_2_search_search">
+      <icon type="search" color="#000000"></icon>
+      <view class="ts">
+        <input value="{{search_text}}" placeholder="请输入..." type="text" bindinput="goSearch"/>
+      </view>
+    </view>
+  </view>
+  <view class="dish_2_btn">
+    <view class="dish_2_btn_btn" data-h1="{{search_text}}"  bind:tap="do_serarch_bind">搜索</view>
+  </view>
+</view>
+<view class="dish_3">
+  <view class="dish_3_top">
+    <view class="dish_3_top_text">
+      <view>最近搜索</view>
+      <view class="remove" style="padding-right: 20rpx;" bind:tap="removeStorageSync">
+       <van-icon name="delete-o" size="18"/> 
+       <text class="font">清空历史</text>
+    </view>
+    </view>
+  </view>
+  <view class="dish_3_botom">
+    <view class="dish_3_botom_son" wx:for="{{historyList}}" wx:key="item">
+      <view class="content">
+     <view class="item"   bind:tap="select">{{item}}</view>
+  </view>
+    </view>
+  </view>
+</view>
+<view class="dish_4" wx:if="{{productList.length}}" >
+  <view class="dish_4_top">
+    <view class="dish_4_top_text">
+      <view>搜索结果</view>
+    </view>
+  </view>
+ 
+    <view class="recomm" >
+  
+    <view class="nav2_box" >
+      <view class="item" wx:for="{{productList}}" wx:key="id">
+        <view class="img">
+          <image class="pic" src="{{url_bash}}{{item.menuimage}}" mode="" />
+        </view>
+        <view class="title">
+          <view bind:tap="go_chooseDetail_bind" data-event="{{index}}" class="text">{{item.menudetail}}</view>
+          <jiage class="jiage" jiage="{{10}}"></jiage>
+          <view class="gou">
+            <view bind:tap="go_gowuche_bind" data-event="{{index}}" class="text">加入购物车</view>
+          </view>
+        </view>
+      </view>
+    </view>
+ 
+ 
+  </view>
+</view>
+<scroll-view class="dish_5" scroll-x="true" scroll-y>
+  <view class="dish_5_son">
+    <view class="dish_5_son_title">回购榜</view>
+    <view class="dish_5_son_dish">
+      <view>
+        <van-card price="10.00" desc="好吃，好吃" title="宫保鸡丁" thumb="{{url_bash}}/ljx/images/gbjd.jpg" class="transparent-card">
+          <view slot="footer">
+            <van-icon name="add" color="orange" size="27px" />
+          </view>
+        </van-card>
+      </view>
+      <view>
+        <van-card price="10.00" desc="很好" title="辣子鸡" thumb="{{url_bash}}/ljx/images/lzj.jpg" class="transparent-card">
+          <view slot="footer">
+            <van-icon name="add" color="orange" size="27px" />
+          </view>
+        </van-card>
+      </view>
+    </view>
+  </view>
+  <view class="dish_5_son">
+    <view class="dish_5_son_title">热门榜</view>
+    <view class="dish_5_son_dish">
+      <view>
+        <van-card price="10.00" desc="低卡，好吃" title="口水鸡" thumb="{{url_bash}}/ljx/images/口水鸡.jpg">
+          <view slot="footer">
+            <van-icon name="add"  color="orange" size="27px"/>
+          </view>
+        </van-card>
+      </view>
+      <view>
+        <van-card price="10.00" desc="描述信息" title="苏叶饮" thumb="{{url_bash}}/ljx/images/jtsy.jpg">
+          <view slot="footer">
+            <van-icon name="add"  color="orange" size="27px"/>
+          </view>
+        </van-card>
+      </view>
+    </view>
+  </view>
+</scroll-view>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.MenuMapper">
+     <select id="select_muen_by_cateid" resultType="com.example.model.Menu">
+          select * from menu
+          <if test="menucateid!=null">
+               where menucateid=#{menucateid}
+          </if>
+          limit #{offset},#{limit}
+     </select>
+     <select id="selectAll" resultType="com.example.model.Menu">
+          select * from menu
+               <if test="firstid != null and secondid != null">
+                where    firstid = #{firstid} AND secondid = #{secondid}
+               </if>
+
+          order by menu.menuid desc
+     </select>
+
+</mapper>

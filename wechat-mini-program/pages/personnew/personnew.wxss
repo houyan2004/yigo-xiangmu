@@ -1,0 +1,54 @@
+.body{
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  padding-top: 40rpx;
+}
+
+.buu{
+  margin-top: 140rpx;
+  display: flex;
+  box-sizing: border-box;
+  padding: 0 auto;
+}
+.field{
+display: flex;
+box-sizing: border-box;
+padding: 20rpx 0;
+align-items: center;
+justify-content: space-between;
+margin: 0 30rpx;
+border-bottom: 1rpx solid rgb(247, 247, 249);
+}
+
+.custom-label-style {
+  color: rgb(100, 101, 102);
+  font-family: Arial;
+  font-size: 18px;
+}
+
+.avatar-wrapper{
+  background:#1989fa;
+  color: #fff;
+  font-size: 14px;
+  padding: 0 15px;
+  height: 40px;
+  text-align: center;
+  align-items: center;
+  border-radius: 2px;
+  display: inline-flex;
+}
+.avatar-wrapper1{
+  background:#fc8231;
+  color: #fff;
+  font-size: 14px;
+  padding: 0 15px;
+  height: 40px;
+  text-align: center;
+  align-items: center;
+  border-radius: 2px;
+  display: inline-flex;
+}
+.avatarHover{
+  background: rgb(116, 116, 116);
+}

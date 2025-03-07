@@ -1,0 +1,51 @@
+.weui-cells{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: -webkit-linear-gradient(top, #39b54a, #bdda95, white);
+}
+.weui-cells .weui-cell{
+  display: flex;
+  width: 720rpx;
+  height: 100rpx;
+  border: 1rpx solid rgb(124, 124, 124);
+ 
+  
+}
+.weui-cells .weui-cell .weui-label{
+  display: flex;
+  font-size: 35rpx;
+  align-items: center;
+  padding-right: 30rpx;
+  color: rgb(10, 10, 10);
+} 
+.weui-cells .weui-cell  .weui-cell_bd{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:rgb(139, 139, 139);
+}
+.add-address{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+.add-address .txt{
+  width: 60vw;
+  height: 75rpx;
+  margin-bottom: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1rpx solid #ff6700;
+  background-origin: 5rpx;
+  font-size: 26rpx;
+  color:#ff6700 ;
+}

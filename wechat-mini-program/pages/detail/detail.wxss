@@ -1,0 +1,142 @@
+/* pages/detail/detail.wxss */.outs{
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.outs .title{
+  font-size: 50rpx;
+   margin-right: 420rpx;
+}
+.outs .out{
+  width: 700rpx;
+  height: 700rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #eee;
+  background: #d1eec8;
+  border-radius: 20rpx;
+  box-shadow: 0 10px 10px rgba(85, 78, 78, 0.5);
+}
+.outs .out .product{
+  display: flex;
+  align-items: center;
+  height: 200rpx;
+  border-bottom: 1rpx solid #f4f4f4;
+}
+.outs .out .product .info{
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 430rpx;
+    height: 100rpx;
+    margin-left: 20rpx;
+  
+}
+.outs .out .product image{
+  width: 145rpx;
+  height: 145rpx;
+}
+.outs .out .hint{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.outs .out  .foot{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 25rpx 0 0;
+   
+    height: 80rpx;
+    font-size: 27rpx;
+    color:  #555;
+  
+}
+.outs .out .foot .money {
+  display: flex;
+  flex-direction: column; /* 保持列布局 */
+  width: 100%; /* 确保宽度填满父容器 */
+}
+
+.num {
+  display: flex;
+  justify-content: space-between; /* 使得子元素分布在两端 */
+  margin-top: 20rpx;
+}
+
+.num text:first-child {
+  text-align: left; /* 左对齐文本 */
+  flex: 1; /* 允许文本元素拉伸以占据剩余空间 */
+}
+
+.num text:last-child {
+  text-align: right; /* 右对齐金额 */
+}
+
+
+.outs .out .foot .totals{
+  margin-top: 20rpx;
+  margin-right: auto;
+}
+.relations {
+  
+  margin-top: 120rpx;
+  display: flex;       /* 使用flex布局 */
+  justify-content: space-evenly; /* 平均分布子元素 */
+  align-items: center; /* 垂直居中对齐子元素 */
+}
+
+.pm {
+  display: flex;       /* 使每个pm内的元素垂直排列 */
+  flex-direction: column; /* 子元素垂直排列 */
+  align-items: center; /* 子元素水平居中对齐 */
+}
+.outs .txt{
+  margin-top: 130rpx;
+  width: 700rpx;
+  height: 170rpx;
+  background: #d1eec8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20rpx;
+  box-shadow: 0 10px 10px rgba(85, 78, 78, 0.5);
+}
+.outs .oders {
+  margin-top: 280rpx;
+  margin-bottom: 20rpx;
+  width: 700rpx;
+  height: 280rpx;
+  background: #d1eec8;
+  border-radius: 20rpx;
+  box-shadow: 0 10px 10px rgba(85, 78, 78, 0.5);
+  display: flex;
+   flex-direction: column;
+}
+.outs .oders .oder{
+  padding: 10rpx;
+  display: flex;
+}
+.oder text:first-child {
+  text-align: left; /* 左对齐文本 */
+  flex: 1; /* 允许文本元素拉伸以占据剩余空间 */
+}
+
+.oder text:last-child {
+  text-align: right; /* 右对齐金额 */
+}
+.outs .btn{
+  width: 700rpx;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+
+
+
+
+ 

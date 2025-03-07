@@ -1,0 +1,29 @@
+<!-- 当前没有地址布局 -->
+<view wx:if="{{addressList.length==0}}" class="address-none">
+   <view class="none-content">
+     <image src="{{url_bash}}/ljx/images/屏幕截图 2024-10-12 135515.png"></image>
+     <text class="txt">请添加收货地址</text>
+   </view>
+ 
+ </view>
+ <view wx:else class="address-list">
+    <view class="address-item" wx:for="{{addressList}}" wx:key="index">
+      <view class="item-top">{{item.name}} {{item.mobile}}</view>
+      <view class="item-content">{{item.city}} {{item.street}}</view>
+       <view class="item-bottom">
+         <view class="left" bind:tap="clickDefault" data-index="{{index}}">
+           <icon type="{{item.isDefault?'success':'circle'}}" size="15"></icon>
+           设为默认地址
+         </view>
+         <view class="right">
+           <view class="txt" bind:tap="clickDelete" data-index="{{index}}">删除</view>
+           <view class="txt" bind:tap="clickEdit" data-index="{{index}}">编辑</view> 
+         </view>
+       </view>
+    </view>
+ 
+ </view>
+ <!-- 添加地址 -->
+ <view class="add-address" bind:tap="clickAdd">
+   <view class="txt">添加收货地址</view>
+ </view>

@@ -1,0 +1,223 @@
+<!-- 标签 -->
+<van-tabs active="{{active}}" bind:change="onChange">
+  <van-tab title="全部" name="0">
+    <van-loading wx:if="{{false}}" class="content-center" type="spinner"></van-loading>
+    <!-- 暂无数据 -->
+    <van-empty wx:if="{{false}}" description="暂无订单数据"></van-empty>
+    <!-- 订单列表 -->
+    <scroll-view class="orders" wx:for="{{orderlist}}" wx:key="id">
+      <view class="order" >
+        <view class="header">
+          <view>
+            订单时间：{{item.createtime}}
+          </view>
+        </view>
+        <view class="product" bind:tap="orderdetail" data-index="{{index}}">
+          <image src="{{presrc}}{{item.proimage}}"></image>
+          <view class="info">
+            <text class="title">{{item.protitle}}</text>
+            <text class="desc">商品描述</text>
+          </view>
+          <view class="status">
+            <text class="packge">包裹*{{item.quantity}}</text>
+            <text class="desc" wx:if="{{item.status===1}}">待付款</text>
+            <text class="desc" wx:if="{{item.status===2}}">待发货</text>
+            <text class="desc" wx:if="{{item.status===3}}">待收货</text>
+            <text class="desc" wx:if="{{item.status===4}}">待评价</text>
+            <text class="desc" wx:if="{{item.status===5}}">待退款</text>
+          </view>
+        </view>
+        <view class="foot">
+          <view class="money">
+            <text>应付：#{{item.totalprice}}元</text>
+          </view>
+          <view class="btns">
+            <van-button size="small" bind:tap="tap_deleteOrder" data-index="{{index}}">删除订单</van-button>
+            <!-- <van-button size="small">{{item.status}}</van-button> -->
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+
+  </van-tab>
+  <van-tab title="待付款" name="1">
+    <van-loading wx:if="{{false}}" class="content-center" type="spinner"></van-loading>
+    <!-- 暂无数据 -->
+    <van-empty wx:if="{{false}}" description="暂无订单数据"></van-empty>
+    <!-- 订单列表 -->
+    <scroll-view class="orders" wx:for="{{orderlist}}" wx:key="id">
+      <view class="order" wx:if="{{item.status===1}}" >
+        <view class="header">
+          <view>
+            订单时间：{{item.createtime}}
+          </view>
+        </view>
+        <view class="product" bind:tap="orderdetail" data-index="{{index}}">
+          <image src="{{presrc}}{{item.proimage}}"></image>
+          <view class="info">
+            <text class="title">{{item.protitle}}</text>
+            <text class="desc">商品描述</text>
+          </view>
+          <view class="status">
+            <text class="packge">包裹*{{item.quantity}}</text>
+            <text class="desc">待付款</text>
+          </view>
+        </view>
+        <view class="foot">
+          <view class="money">
+            <text>应付：#{{item.totalprice}}元</text>
+          </view>
+          <view class="btns">
+            <van-button size="small" bind:tap="tap_deleteOrder" data-index="{{index}}">删除订单</van-button>
+            <!-- <van-button size="small">{{item.action}}</van-button> -->
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+  </van-tab>
+  <van-tab title="待发货" name="2">
+    <van-loading wx:if="{{false}}" class="content-center" type="spinner"></van-loading>
+    <!-- 暂无数据 -->
+    <van-empty wx:if="{{false}}" description="暂无订单数据"></van-empty>
+    <!-- 订单列表 -->
+    <scroll-view class="orders" wx:for="{{orderlist}}" wx:key="id">
+      <view class="order" wx:if="{{item.status===2}}">
+        <view class="header">
+          <view>
+            订单时间：{{item.createtime}}
+          </view>
+        </view>
+        <view class="product" bind:tap="orderdetail" data-index="{{index}}">
+          <image src="{{presrc}}{{item.proimage}}"></image>
+          <view class="info">
+            <text class="title">{{item.protitle}}</text>
+            <text class="desc">商品描述</text>
+          </view>
+          <view class="status">
+            <text class="packge">包裹*{{item.quantity}}</text>
+            <text class="desc">待发货</text>
+          </view>
+        </view>
+        <view class="foot">
+          <view class="money">
+            <text>总价共：#{{item.totalprice}}元</text>
+          </view>
+          <view class="btns">
+            <van-button size="small" bind:tap="tap_deleteOrder" data-index="{{index}}">删除订单</van-button>
+            <!-- <van-button size="small">{{item.action}}</van-button> -->
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+  </van-tab>
+  <van-tab title="待收货" name="3">
+    <van-loading wx:if="{{false}}" class="content-center" type="spinner"></van-loading>
+    <!-- 暂无数据 -->
+    <van-empty wx:if="{{false}}" description="暂无订单数据"></van-empty>
+    <!-- 订单列表 -->
+    <scroll-view class="orders" wx:for="{{orderlist}}" wx:key="id">
+      <view class="order" wx:if="{{item.status===3}}">
+        <view class="header">
+          <view>
+            订单时间：{{item.createtime}}
+          </view>
+        </view>
+        <view class="product" bind:tap="orderdetail" data-index="{{index}}">
+          <image src="{{presrc}}{{item.proimage}}"></image>
+          <view class="info">
+            <text class="title">{{item.protitle}}</text>
+            <text class="desc">商品描述</text>
+          </view>
+          <view class="status">
+            <text class="packge">包裹*{{item.quantity}}</text>
+            <text class="desc">待收货</text>
+          </view>
+        </view>
+        <view class="foot">
+          <view class="money">
+            <text>总价共：#{{item.totalprice}}元</text>
+          </view>
+          <view class="btns">
+            <van-button size="small" bind:tap="tap_deleteOrder" data-index="{{index}}">删除订单</van-button>
+            <!-- <van-button size="small">{{item.action}}</van-button> -->
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+  </van-tab>
+  <van-tab title="待评价" name="4">
+    <van-loading wx:if="{{false}}" class="content-center" type="spinner"></van-loading>
+    <!-- 暂无数据 -->
+    <van-empty wx:if="{{false}}" description="暂无订单数据"></van-empty>
+    <!-- 订单列表 -->
+    <scroll-view class="orders" wx:for="{{orderlist}}" wx:key="id">
+      <view class="order" wx:if="{{item.status===4}}">
+        <view class="header">
+          <view>
+            订单时间：{{item.createtime}}
+          </view>
+        </view>
+        <view class="product" bind:tap="orderdetail" data-index="{{index}}">
+          <image src="{{presrc}}{{item.proimage}}"></image>
+          <view class="info">
+            <text class="title">{{item.protitle}}</text>
+            <text class="desc">商品描述</text>
+          </view>
+          <view class="status">
+            <text class="packge">包裹*{{item.quantity}}</text>
+            <text class="desc">待评价</text>
+          </view>
+        </view>
+        <view class="foot">
+          <view class="money">
+            <text>总价共：#{{item.totalprice}}元</text>
+          </view>
+          <view class="btns">
+            <van-button size="small" bind:tap="tap_deleteOrder" data-index="{{index}}">删除订单</van-button>
+            <!-- <van-button size="small">{{item.action}}</van-button> -->
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </van-tab>
+  <van-tab title="待退款" name="5">
+    <van-loading wx:if="{{false}}" class="content-center" type="spinner"></van-loading>
+    <!-- 暂无数据 -->
+    <van-empty wx:if="{{false}}" description="暂无订单数据"></van-empty>
+    <!-- 订单列表 -->
+    <scroll-view class="orders" wx:for="{{orderlist}}" wx:key="id">
+      <view class="order" wx:if="{{item.status===5}}">
+        <view class="header">
+          <view>
+            订单时间：{{item.createtime}}
+          </view>
+        </view>
+        <view class="product" bind:tap="orderdetail" data-index="{{index}}">
+          <image src="{{presrc}}{{item.proimage}}"></image>
+          <view class="info">
+            <text class="title">{{item.protitle}}</text>
+            <text class="desc">商品描述</text>
+          </view>
+          <view class="status">
+            <text class="packge">包裹*{{item.quantity}}</text>
+            <text class="desc">待退款</text>
+          </view>
+        </view>
+        <view class="foot">
+          <view class="money">
+            <text>总价共：#{{item.totalprice}}元</text>
+          </view>
+          <view class="btns">
+            <van-button size="small" bind:tap="tap_deleteOrder" data-index="{{index}}">删除订单</van-button>
+            <!-- <van-button size="small">{{item.action}}</van-button> -->
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </van-tab>
+</van-tabs>
+<!-- 加载中 -->

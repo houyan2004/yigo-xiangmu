@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: yigo_server
+  # 数据库连接信息
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.92.65.33:3306/yigo
+    username: yigo
+    password: MWcysMZBjpB4Jdi8
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+  # 文件上传配置
+  servlet:
+    multipart:
+      max-file-size: 10MB # 文件大小限制
+      max-request-size: 100MB # 请求大小限制
+
+mybatis:
+  # #指定 MyBatis在应用程序的类路径中自动查找并加载 com/itheima/mapper 目录下所有的 XML 映射文件。
+  mapper-locations: classpath:/com/example/mapper/*.xml
+  configuration:
+    # 配置mybatis的日志, 指定输出到控制台
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 开启mybatis的驼峰命名自动映射开关 a_column ------> aCloumn
+    map-underscore-to-camel-case: true
+
+server:
+  port: 8085
+
+cors:
+  allow-origin: "*"  # 允许的跨域请求源，可根据实际情况修改
+  allow-methods: GET,POST,PUT,DELETE  # 允许的跨域请求方法
+  allow-headers: Content-Type,Authorization  # 允许跨域请求携带的请求头
+  allow-credentials: true  # 是否允许跨域请求携带凭证，如 Cookie
+

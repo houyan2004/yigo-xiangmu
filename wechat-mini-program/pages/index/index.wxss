@@ -1,0 +1,331 @@
+/* pages/index/index.wxss */
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  
+}
+.pagee{
+  background: linear-gradient(180deg, rgba(35, 155, 93, 1) 0%, rgba(255, 255, 255, 0) 100%);
+   
+   
+}
+.gradient-container{
+   
+  width: 100%;
+}
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90rpx;
+}
+.search .search_in {
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  padding:0 20rpx ;
+  box-sizing: border-box;
+  height: 70rpx;
+  width: 660rpx;
+  background-color: #ffffff;
+  border-radius: 35rpx;
+  border: 1rpx solid #6cd3ff;
+}
+.search_in image {
+  height: 45rpx;
+  width: 45rpx;
+ 
+}
+.search input {
+  width: 480rpx;
+}
+.search_in .search_btn {
+  height: 55rpx;
+  width: 110rpx;
+  border-radius: 55rpx;
+  background-color: #6cd3ff;
+  color: #ffffff;
+  text-align: center;
+  line-height: 55rpx;
+  cursor: pointer;
+}
+
+ 
+/* 上面的都是搜索框的内容 *****************************************************************/
+.out{
+  width: 100%;
+  justify-content: center; /* 水平居中子元素 */
+  padding: 20rpx;
+ 
+}
+.classify{
+  background: white;
+  align-items: center;
+  /* //justify-content: center; 水平居中子元素 */
+  display: flex;
+  box-sizing: border-box; /* 确保边框和内边距包含在宽度和高度内 */
+  flex-direction: row; /* 子元素横向排列 */
+  flex-wrap: wrap; /* 允许子元素换行 */
+  padding: 10rpx;/*内边距*/
+  width: 700rpx;
+  height: 790rpx;
+  border: 1rpx solid #cccccc; /* 方框的边框 */
+  box-shadow: 0 10px 10px rgba(85, 78, 78, 0.5); /* 方框的阴影 */
+  border-radius: 10rpx;
+  
+}
+.out .classify .num{
+  
+  box-sizing: border-box;
+  width: 330rpx;
+  height: 360rpx;
+  text-align: center;
+  /* align-items: center; */
+  padding: 20rpx;
+}
+.classify .num image{
+  width: 310rpx;
+  height: 310rpx;
+  /* align-items: center; */
+   border-radius: 20rpx;
+}
+/* 上面的是菜系分类********************************************************* */
+.out1 {
+  padding: 60rpx 30rpx;
+   
+}
+
+.out1 .selectfood {
+  background: white;
+  display: flex;
+  flex-direction: row; /* 更改为row，使得.food横向排列 */
+  overflow-x: auto; /* 允许横向滚动 */
+  white-space: nowrap; /* 防止子元素换行 */
+  box-sizing: border-box;
+  padding: 0 15rpx;
+  text-align: center;
+  font-size: 32rpx;
+  height: 220rpx;
+  border: 1rpx solid #cccccc; /* 方框的边框 */
+  box-shadow: 0 10px 10px rgba(85, 78, 78, 0.5); /* 方框的阴影 */
+  border-radius: 20rpx;
+}
+/* 为.food设置样式，以确保它们在.selectfood内正确显示 */
+.out1 .selectfood .food {
+  display: flex;
+  flex-direction: column;/*图片，文字列项排列*/
+  /* 其他样式，如宽度、边距等 */
+  padding: 10rpx;
+}
+.out1 .selectfood .food image{
+  width: 150rpx;
+  height: 150rpx;
+  border: 1rpx solid #585858;
+  border-radius: 50%;
+  
+}
+/* ******************************************** */
+.show{
+  width: 100%;
+  height: 500rpx;
+   
+ }
+ .item{
+  height: 500rpx;
+ }
+ .itemImg{
+  position: absolute;
+  width: 640rpx;
+  height: 380rpx;
+  border-radius: 15rpx;
+  z-index: 5;
+  opacity: 0.7;
+  top: 13%;
+ }
+ .active{
+   /* 完全不透明 */
+  opacity: 1;
+  z-index: 10;
+  height: 430rpx;
+  top: 7%;
+  /* transition作用为元素样式之间的过渡作用 */
+  transition:all .2s ease-in 0s;
+ }
+ /* **************上面是轮播图************************************ */
+ .nav2_box {
+  background-color: rgba(204, 200, 200, 0.1);
+  padding: 10rpx;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 10rpx;
+  display: flex;
+  box-sizing: border-box; /* 确保边框和内边距包含在宽度和高度内 */
+  flex-direction: row; /* 子元素横向排列 */
+  flex-wrap: wrap;/*允许换行*/
+  justify-content: center;/*竖直对其*/
+  align-items: center;/*水平对其*/
+}
+ 
+.nav2_box .item {
+  width: 355rpx;
+  height: 370rpx;
+  display: flex;
+  box-sizing: border-box;
+  margin: 5rpx 5rpx;/*外边距*/
+  border-radius: 20rpx;
+  bottom: 20rpx;
+  align-items: center;
+}
+.nav2_box .item .pic1{
+  /**/
+  z-index: -1;
+  display: flex;
+ 
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+   padding-left: 0;
+   position: relative;
+}
+.nav2_box .item .shangm{
+  width: 100%;
+  z-index: 2;
+   
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+.nav2_box .img {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 10rpx;
+  opacity: 1;/*完全不透明*/
+  border-radius: 50px;
+  margin-left: 2rpx; 
+  margin-bottom: 100rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.nav2_box .img .pic {
+  width: 100rpx;
+  height: 100rpx;
+ border-radius: 50%;
+ /* padding-top: 0rpx; */
+   
+}
+.nav2_box .title {
+  width: 100%;
+  height: 250rpx;
+  
+  position: relative;
+  
+}
+
+.nav2_box .text {
+  margin-top: 18rpx;
+  font-size: 20rpx;
+  font-weight: 700;
+  width: 150rpx;
+  letter-spacing: 0px;
+  color: rgb(160, 139, 139);
+  overflow: hidden; /* 超出隐藏 */
+  text-overflow: ellipsis; /* 超出部分显示省略号 */
+
+}
+
+.nav2_box .jiage {
+  position: absolute;
+  bottom: 2rpx;
+  left: 0;
+}
+
+ 
+
+.nav2_box .text {
+ 
+  font-weight: 700;
+  
+}
+/* ******************分割线********************** */
+/* pages/another/scrNews/index.wxss */
+ 
+
+.box {
+  width:   100%;
+  height: 120rpx;
+  margin: 10rpx auto;
+  overflow: hidden;
+  background: rgb(235, 247, 218);
+  border-radius: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+.box .image{
+  z-index: 10;
+  width: 150rpx;
+  height: 120rpx;
+  margin-left: auto;
+  margin-top: -20rpx;
+  margin-bottom: 90rpx;
+}
+.box .image >image{
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+.box .pic{
+  z-index: 10;
+  width: 150rpx;
+  height: 120rpx;
+  margin-right: auto;
+  margin-top: -20rpx;
+  margin-bottom: 90rpx;
+}
+.box .pic>image{
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* //滚动的样式 */
+.r {
+ z-index: 11;
+  white-space: nowrap;
+  animation: 5s loop linear infinite normal;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 36rpx;
+  color: rgb(7, 7, 7);
+  
+}
+
+@keyframes loop {
+  0% {
+    transform: translateX(350px);
+    -webkit-transform: translateX(350px);
+  }
+
+  100% {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+  }
+}
+
+@-webkit-keyframes loop {
+  0% {
+    transform: translateX(300px);
+    -webkit-transform: translateX(300px);
+  }
+
+  100% {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+  }
+}

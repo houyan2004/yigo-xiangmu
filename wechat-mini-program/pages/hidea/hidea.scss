@@ -1,0 +1,104 @@
+/* 包裹图片和两行文字 */
+
+.view_tupian_wenzi {
+  height: 120rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+  /* 圆角 */
+  border-radius: 20rpx;
+
+  /* 边 */
+  border: 3rpx solid #E0E3DA;
+  box-shadow:5rpx 5rpx 5rpx 5rpx #E0E3DA;
+
+  background-color: #ffffff;
+  margin: 30rpx;
+
+  /* padding使得文字和图片不至于贴着边框 */
+  padding: 30rpx;
+
+}
+
+/* 图片 */
+
+.image_1 {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+/* 包裹两行文字 */
+ 
+.bg{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 1;
+}
+.out{
+  
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  z-index: 2;
+  .txt{
+    margin-top: 120px;
+  }
+}
+.view_wenzi2 {
+  
+  width: 100%;
+  margin-left: 25rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 小字 */
+
+.text_small {
+  font-size: 30rpx;
+  color: #7a7878;
+  margin-top: 10rpx;
+  overflow: hidden;       /* 超出部分隐藏 */
+  white-space: nowrap;    /* 文本不换行 */
+  text-overflow: ellipsis;/* 超出部分显示省略号 */
+  max-width: 100%;       /* 可以设置最大宽度，以确保文本不会超出容器的宽度 */
+}
+ .look{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolutes;
+  z-index: 7;
+  .out1 {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center;     /* 垂直居中 */
+    z-index: 10;              /* 确保.out1在.out和.bg之上 */
+    position: absolute;
+    top: 50%;                /* 将.out1的顶部位置设置为视口高度的50% */
+    left: 50%;               /* 将.out1的左侧位置设置为视口宽度的50% */
+    transform: translate(-50%, -50%); /* 使用transform将.out1向上和向左移动自身宽度和高度的一半 */
+    width: 700rpx;
+    height: 800rpx;
+   margin-left: 10px;
+    .tx {
+      z-index: 8;
+      display: flex;
+      flex-direction: column; /* 设置flex方向为垂直排列 */
+      width: 700rpx;
+      height: 800rpx;
+     border-radius: 20px;
+      border: 3rpx solid #E0E3DA;
+      box-shadow:5rpx 5rpx 5rpx 5rpx #E0E3DA;
+    
+      background-color: #e9e9d2;
+      
+    }
+    /* 如果.out1需要背景色或边框，可以在这里添加 */
+  }
+ }
+

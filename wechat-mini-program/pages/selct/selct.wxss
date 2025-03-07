@@ -1,0 +1,133 @@
+/* pages/select/select.wxss */
+.out {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%; /* 确保.out填满整个视口高度 */
+  align-items: center;
+  justify-content: center; /* 垂直居中.select */
+  background: linear-gradient(180deg, rgba(35, 155, 93, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.out .select {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 690rpx;
+}
+
+.out .select .num {
+  width: 100%;
+  height: 120rpx; /* 调整高度以适应多行文本 */
+  margin-bottom: 20rpx;
+  border: 1rpx solid #eee;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 添加此行以分配空间 */
+  background-color: rgb(225, 243, 161);
+}
+
+.out .select .num .txt {
+  flex: 1; /* 允许.txt占用剩余空间 */
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.out .select .num .txt text {
+  white-space: normal; /* 允许文本换行 */
+  word-wrap: break-word; /* 在长单词或URL地址内部进行换行 */
+}
+
+.out .select .num .van-icon {
+  margin-right: 20rpx;
+}
+
+.out .select .num van-switch {
+  margin-right: 20rpx; /* 添加右边距 */
+}
+.out .select .num .txt .txt1{
+   font-size: 45rpx;
+   color: rgb(73, 71, 71);
+}
+.out .select .num .txt .txt2{
+  font-size: 20rpx;
+  color: rgb(143, 143, 143);
+}
+.out .ideas .idea {
+  width: 690rpx;
+  height: 90rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #eee;
+  background-color: rgb(218, 233, 166);
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: row; /* 修改为 row 以水平排列子元素 */
+  align-items: center; /* 垂直居中子元素 */
+  justify-content:space-between; /* 水平居中子元素 */
+}
+ /* **************下面是评分********************** */
+.pinfen{
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.pinfen .beij {
+  position: relative;
+  width: 319px;
+  z-index: 1;
+}
+.pinfen .btxt{
+  z-index: 10;
+  position: absolute;
+  background-color: rgb(16, 126, 62);
+  margin-bottom: 110px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 450rpx;
+  border-radius: 30px;
+}
+.pinfen .btxt >text{
+  color: white;
+}
+.pinfen .real{
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 319px;
+   position: absolute;
+   margin-top: 90px;
+}
+.pinfen > text {
+  position: absolute; /* 设置绝对定位 */
+  z-index: 10;
+  font-size: 20px;
+  margin-left: 10px;
+  margin-bottom: 60px;
+}
+.pinfen .beij2{
+  position: absolute; /* 设置绝对定位 */
+  width: 600rpx;
+  height: 50px;
+  z-index: 10; 
+  margin-bottom: 110px;
+}
+.pinfen .beij2 > image {
+  
+  position: absolute; /* 设置绝对定位 */
+  width: 600rpx;
+  height: 50px;
+  z-index: 10; /* 确保这个值低于 text 的 z-index 值 */
+}
+ 
+ 
+
+ 
+
+

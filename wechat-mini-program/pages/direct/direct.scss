@@ -1,0 +1,31 @@
+.content {
+  padding: 15rpx 15rpx 0 15rpx;
+  font-size: 30rpx;
+  color: #808080;
+  .list-content {
+    display: flex;
+    flex-direction:row; /* 修改为 row 以水平排列子元素 */
+    align-items: center; /* 垂直居中子元素 */
+    justify-content:space-between; /* 水平居中子元素 */
+    text-align: center;
+    line-height: 60rpx;
+    border-bottom: 1rpx solid #ddd;
+    .pic{
+      margin-left: 670rpx;
+    }
+    .txt{
+      margin-right: 550rpx;
+    }
+  }
+  .list-text {
+    padding-top: 15rpx;
+    transition: all 0.5s ease;
+    text-indent: 40rpx;
+    display: block;
+  }
+  
+  .hidden-content {
+     
+    display: none;
+  }
+}

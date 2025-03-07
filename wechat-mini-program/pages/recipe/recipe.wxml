@@ -1,0 +1,75 @@
+<view class="body">
+
+<view class="box_body"></view>
+  
+  <view class="btn">
+    <van-search value="{{ search_value }}" shape="round" background="#00000000" placeholder="请输入搜索关键词" style="width: 100%"  
+  bind:clear="onClear" bind:tap="on_dianji"/>
+    
+  </view>
+ 
+  <view class="navbox">
+
+    <!-- ///展开全部/// -->
+    <view wx:if="{{iszhankai}}" class="zhangkaiquanbu">
+      <view class="title">全部分类</view>
+      <view bind:tap="on_shouqi_bind" class="shouqi">收起
+        <van-icon custom-class="jiantou" name="arrow-up" />
+      </view>
+      <view class=".zk_box">
+        <view bind:tap="onTagSelect" data-index="{{index}}" wx:for="{{yijifenlei}}" class="scritem" wx:key="id">
+          <view class="item_felx">
+            <image class="pic" src="{{item.url}}" mode="" />
+            <text class="text{{index ==selectedContentIndex?'active':''}}">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- ///////////// -->
+
+<!-- 一级分类 -->
+    <scroll-view class="scroll" scroll-x enable-flex>
+      <view bind:tap="onTagSelect" data-index="{{index}}" wx:for="{{yijifenlei}}" wx:key="id" class="scritem" wx:key="index">
+        <view class="item_felx">
+          <image class="pic" src="{{item.url}}" mode="" />
+          <text class="text{{index ==selectedContentIndex?'active':''}}">{{item.name}}</text>
+        </view>
+      </view>
+    </scroll-view>
+
+    <image bind:tap="on_zhangkai_bind" class="quanbu" src="{{url_bash}}/hsb/images/quanbu.png"></image>
+  </view>
+
+  <!-- 遮罩 -->
+  <view wx:if="{{iszhankai}}" class="mask"></view>
+
+
+  <view class="content">
+  <!-- 二级分类 -->
+    <scroll-view class="content_left" scroll-y enable-flex>
+      <view class="left_item" style="background: rgb(180, 180, 180);">分类</view>
+      <view class="left_item" bind:tap="on_left_item_bind" data-event="{{index}}" wx:for="{{erjifenl}}" wx:key="id" style="{{index==minfenlie_index?'background: rgba(255, 255, 255, 1);color: rgba(0, 97, 47, 1);':''}}">
+        {{item.name}}
+      </view>
+
+    </scroll-view>
+    <scroll-view class="content_right" scroll-y>
+
+      <view bind:tap="on_liebiaoitem_bind" data-event="{{index}}" wx:for="{{dataArr}}" class="caibox" wx:key="id">
+        <image class="pic" src="{{url_bash}}{{item.menuimage}}" mode="widthFix" />
+        <view class="box_right">
+          <view class="title">{{item.menuname}}</view>
+          <view class="biaoqian">
+            <text wx:for="{{item.menudetail}}" wx:key="index" class="biaoqianitem">{{item}}</text>
+          </view>
+          <view class="box_bottm">
+            <jiage class="jiage" jiage="{{38.5}}"></jiage>
+            <view class="text">菜谱详情</view>
+          </view>
+        </view>
+      </view>
+
+    </scroll-view>
+  </view>
+
+</view>

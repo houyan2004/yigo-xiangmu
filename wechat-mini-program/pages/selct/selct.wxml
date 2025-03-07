@@ -1,0 +1,87 @@
+<view class="out">
+  <view class="select">
+   <navigator url="/pages/personnew/personnew"> 
+     <view class="num">
+        <van-icon name="info" size="80rpx" color="green"/>
+        <view class="txt">
+          <text class="txt1">个人信息</text>
+          <text class="txt2">个人资料和信息管理</text>
+        </view>
+     </view>
+    </navigator>
+      <navigator url="/pages/site/site">
+        <view class="num">
+      <van-icon name="map-marked"size="80rpx" color="green" />
+         <view class="txt">
+          <text class="txt1">地址管理</text>
+        <text class="txt2">新增或更改地址</text>
+        </view>
+     </view>
+      </navigator>
+      <view class="num">
+        <van-icon name="notes" size="80rpx" color="green"/>
+      <view class="txt">
+        <text class="txt1">密码</text>
+        </view>
+        
+     </view>
+     <view class="num">
+      <van-icon name="volume" size="80rpx" color="green"/>
+      <view class="txt">
+        <text class="txt1">通知</text>
+        </view>
+        <van-switch checked="{{ checked }}" bind:change="onChange" />
+     </view>
+     <view class="num">
+      <van-icon name="font" size="80rpx" color="green"/>
+        <view class="txt">
+          <text  class="txt1">大字版</text>
+        </view>
+        <van-switch checked="{{ checked1 }}" bind:change="onChange1" />
+     </view>
+  
+  </view>
+  <view class="ideas">
+   <navigator url="/pages/ideas/ideas">
+    <view class="idea">
+       <text>意见反馈</text>
+       <van-icon name="arrow" />
+     </view>
+   </navigator>
+   <navigator url="/pages/xinagq/xiangq">
+    <view class="idea">
+      <text>关于颐购</text>
+       <van-icon name="arrow" />
+     </view>
+   </navigator>
+     
+  </view>
+  <div  class="pinfen">
+    <div class="beij">
+      <image src="/hy/image/cion/beijing.png"></image>
+       
+    </div>
+  <div class="beij2">
+    <image src="/hy/image/cion/beijin2.png"></image>
+  </div>
+  <div class="btxt">
+    <text>新鲜到家，一键直达</text>
+  </div>
+  <div class="real">
+    <text >请为小程序评分：</text>
+    <van-rate
+  value="{{ value }}"
+  size="{{ 50 }}"
+  color="#ffd21e"
+  void-icon="star"
+  void-color="#eee"
+  bind:change="onChange3"
+  
+/>
+  </div>
+     
+  </div>
+  
+
+
+</view>

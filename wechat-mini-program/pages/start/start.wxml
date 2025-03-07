@@ -1,0 +1,4 @@
+<view class="body">
+<view class="text">你好，颐购</view>
+<image class="img" src="{{url_bash}}/hy/image/img/start.png" mode=""/>
+</view>

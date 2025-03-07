@@ -1,0 +1,77 @@
+<view class="body">
+  <text class="text1">购物车</text>
+  <view class="fenxian">
+    <image class="ipic" src="{{url_bash}}/hy/image/img/001.png" mode="aspectFill" /><text class="text">分享</text>
+
+  </view>
+  <view class="shanchu"><text style="font-weight: 500;">删除</text></view>
+  <view class="line"></view>
+  <van-icon size="22.5px" class="cha" name="close" color="#fff" />
+  <view class="content">
+    <view class="dizhi">
+      <view class="text">
+        <text>{{userdata.username}}<text style="font-weight: 500;">{{userdata.phone}}</text></text>
+        <view class="xianxi">{{userdata.dizhi}}</view>
+      </view>
+      <view class="tishi">现在下单30分钟内送达</view>
+      <image class="pic" src="{{url_bash}}/hy/image/img/001.png" mode="aspectFill" />
+    </view>
+    <view class="quanbu">
+      <text class="qutx">全部</text>
+      <van-checkbox-group value="{{ result }}" bind:change="onChange">
+        <view class="box" wx:for="{{guwu_Arr}}" wx:key="index">
+          <van-checkbox custom-class="checkbox" name="{{index}}" checked-color="#FF8D1A" />
+          <view class="img">
+            <image class="pic" src="{{presrc}}{{item.img}}" mode="" />
+          </view>
+          <view class="title">
+            <view data-id="{{item.id}}" bind:tap="go_chooseDetail_bind" class="text">{{item.title}}</view>
+          </view>
+          <jiage class="jiage" jiage="{{item.price}}"></jiage>
+          <view class="shuliang">
+            <image bind:tap="shangping_reduce_bind" data-event="{{index}}" class="jia" src="/hy/image/cion/reduce.png" mode="aspectFill" />
+            <text class="text">{{item.quantity}}</text>
+            <image bind:tap="shangping_add_bind" data-event="{{index}}" class="jia" src="/hy/image/cion/add.png" mode="aspectFill" />
+          </view>
+        </view>
+      </van-checkbox-group>
+
+      <view class="box2">
+        <view class="box_item">
+          <text class="text">商品总额</text>
+          <jiage class="jiage" jiage="{{toailPirce }}"></jiage>
+        </view>
+        <view class="box_item">
+          <text class="text"> 配送费</text>
+          <jiage class="jiage" jiage="{{pesongPirce}}"></jiage>
+        </view>
+        <view class="box_item">
+          <text class="text">平台优惠</text>
+          <view class="text-youhui">暂无可用优惠</view>
+        </view>
+        <view class="box_item">
+          <text class="text">品牌优惠</text>
+          <view class="text-youhui">暂无可用品牌优惠</view>
+        </view>
+        <view class="heji">
+          <text class="text">合计：</text>
+          <jiage jiage="{{toailPirce}}"></jiage>
+        </view>
+      </view>
+
+
+    </view>
+    <view class="zhifu">
+      <view class="left">
+        <van-icon
+        style="margin-right: 10rpx;"
+         size="52rpx" color="#FF8D1A" name="checked" />
+        <text class="text">已选{{yixuan}}件</text>
+      </view>
+      <view class="right">
+      <jiage class="jiage" jiage="{{toailPirce}}" ></jiage>
+      <view  style="margin-left: 30rpx;" hover-class="btn_hover" hover-stay-time="{{100}}" bind:tap="do_zhifu_bind" class="btn">支付</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,313 @@
+.out {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400rpx;
+  width: 100%;
+ 
+ background: linear-gradient(180deg, rgba(35, 155, 93, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  position: relative; /* 设置为相对定位，以便子元素可以相对于它进行绝对定位 */
+}
+
+.out .sele {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 200rpx;
+  box-sizing: border-box;
+  padding-left: 20rpx;
+  width: 100%;
+}
+
+.out .sele .head {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.out .sele .head .new{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10rpx;
+  height: 150rpx;
+}
+.out .sele .head .new text:first-child{
+  font-size: 40rpx;
+}
+.out .sele .head .new text:nth-child(2){
+  font-size: 40rpx;
+  color: #857b7b;
+}
+.out .sele .name1 {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.out .sele .set {
+  display: flex;
+  align-items: center;
+  padding-right: 20rpx;
+}
+
+.out .sele .head image {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+
+.out .sele .set image {
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.out .pic {
+  display: flex;
+  height: 150rpx;
+  width: 650rpx;
+  background-color: rgb(22, 120, 69);
+  margin: 0 auto;
+  border-radius: 30rpx;
+  color: rgb(167, 184, 93);
+  position: relative; /* 设置为相对定位，以便.order可以覆盖它的一部分 */
+  z-index: 1; /* 设置z-index，以便.order可以覆盖.pic */
+}
+
+.out .pic image {
+  height: 100rpx;
+  width: 200rpx;
+  padding-left: 20rpx;
+  padding-top: 10rpx;
+}
+
+.out .pic text {
+  font-size: 40rpx;
+  padding-top: 40rpx;
+}
+
+.order {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 700rpx; /* 设置为.pic宽度的1/4 */
+  height: 200rpx;
+  border-radius: 30rpx;
+  background: rgb(255, 255, 255);
+  position: absolute; /* 设置为绝对定位，以便它可以相对于.out定位 */
+  top: 50%; /* 垂直居中.order */
+  left: 50%; /* 水平居中.order */
+  transform: translate(-50%, 70%); /* 调整.order的位置，使其居中 */
+  z-index: 2; /* 设置更高的z-index，以便.order可以覆盖.pic */
+  overflow: visible; /* 确保超出部分可见 */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); /* 添加四周阴影 */
+}
+
+.order .first {
+  display: flex;               /* 使用 Flexbox 布局 */
+  justify-content: space-between; /* 分布在容器的两端 */
+  align-items: center;         /* 垂直居中 */
+  width: 100%;                 /* 宽度为父容器的100% */
+  padding: 0 20rpx;  
+  margin-bottom: 10rpx;
+}
+.order .first .all{
+  padding-right: 30rpx;
+  margin-bottom: 10rpx;
+}
+
+.order .second {
+  display: flex;               /* 使用 Flexbox 布局 */
+  flex-direction: row;         /* 子元素水平排列 */
+  align-items: center;         /* 子元素垂直居中 */
+  justify-content: space-evenly;
+}
+
+.order .second .out{
+  display: flex;       /* 使用 Flexbox 布局 */
+  flex-direction: column; /* 子元素垂直排列 */
+  align-items: center; /* 子元素水平居中 */
+  justify-content: center; /* 子元素垂直居中 */
+  height: 120rpx;
+  width: 100rpx;
+  background:  white;
+}
+.order .second .out van-icon {
+  color: #39b54a;
+  margin-bottom: 10rpx; /* 在图标和文本之间添加一些间隔 */
+}
+
+.order .second text {
+  align-self: center; /* 确保文本也居中 */
+}
+/* 上面的是我的订单 */
+.serves {
+  margin-top: 150rpx;
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  height: 100%; /* 确保.serves占据足够的高度 */
+  padding: 20rpx; /* 添加内边距 */
+}
+
+.serves .serve {
+  box-sizing: border-box;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  width: 720rpx;
+  height: 100%;
+  border-radius: 30rpx;
+}
+
+.serves .serve .word {
+  font-size: 45rpx;
+  padding: 20rpx;
+  text-align: center; /* 确保文字居中显示 */
+}
+
+.serves .serve .wook {
+  display: flex;
+  justify-content: space-evenly; /* 均匀分布子元素 */
+  padding: 10rpx;
+}
+
+.serves .serve .wook navigator {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 确保navigator内部的元素居中显示 */
+}
+.recomm{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.recomm .pic{
+  display: flex;
+  width: 620rpx;
+  height: 150rpx;
+ 
+   
+   
+}
+.recomm .pic .picss{
+  height: 150rpx;
+  margin-top: 20rpx;
+   width: 100%;
+ 
+  margin-top: 20rpx;
+
+}
+ 
+ 
+.recomm{
+  padding: 10rpx;
+}
+.recomm .pics{
+  align-items: center;
+  /* //justify-content: center; 水平居中子元素 */
+  display: flex;
+  box-sizing: border-box; /* 确保边框和内边距包含在宽度和高度内 */
+  flex-direction:row; /*子元素横向排列*/
+  flex-wrap: wrap; /* 允许子元素换行 */
+  padding: 20rpx;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+
+ }
+ .recomm .pics .specifc{
+   flex:1;
+   display: flex;
+   flex-direction: column;
+  box-sizing: border-box;
+  justify-content: center;
+  width: 335rpx;
+  height: 400rpx;
+  text-align: center;
+  align-items: center;
+  margin-right: 10rpx;
+  margin-bottom: 20rpx;
+  background: rgb(245, 245,245);
+  border: 1rpx solid #eee;
+  border-radius: 20rpx;
+ }
+ .recomm .pics .specifc image{
+  width: 300rpx;
+  height: 390rpx;
+   /* align-items: center; */
+   border-radius: 20rpx;
+ }
+ /* **********************************推荐 */
+ .nav2_box {
+  background-color: rgba(204, 200, 200, 0.1);
+  padding: 20rpx;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 10rpx;
+}
+
+.nav2_box .item:nth-child(1) {
+  margin-top: 10rpx;
+}
+
+.nav2_box .item {
+  min-height: 250rpx;
+  display: flex;
+  margin: 40rpx 0;
+   
+}
+
+.nav2_box .img {
+  width: 320rpx;
+  height: 214rpx;
+  margin-right: 10rpx;
+  opacity: 1;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.nav2_box .img .pic {
+  width: 100%;
+  height: 100%;
+   
+}
+.nav2_box .title {
+  width: 100%;
+  min-height: 250rpx;
+  border-bottom: 2rpx solid #828;
+  position: relative;
+}
+
+.nav2_box .text {
+  font-size: 40rpx;
+  font-weight: 700;
+  letter-spacing: 0px;
+  color: rgba(0, 0, 0, 1);
+}
+
+.nav2_box .jiage {
+  position: absolute;
+  bottom: 2rpx;
+  left: 0;
+}
+
+.nav2_box .gou {
+  position: absolute;
+  bottom: 10rpx;
+  padding: 5rpx 10rpx;
+  right: 0;
+  height: 48rpx;
+  opacity: 1;
+  border-radius: 10rpx;
+  background: rgba(255, 141, 26, 1);
+}
+
+.nav2_box .text {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: rgb(24, 21, 21);
+}

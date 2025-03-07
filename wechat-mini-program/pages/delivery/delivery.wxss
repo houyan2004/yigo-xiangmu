@@ -1,0 +1,72 @@
+.out {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.out .view {
+  align-items: center;
+ 
+}
+
+.out .deliverys {
+  margin-top: 100rpx;
+  width: 700rpx;
+  height: 420rpx;
+  background: #d1eec8;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 10px 10px rgba(85, 78, 78, 0.5);
+}
+
+.out .deliverys .txt {
+  display: flex;
+  flex-direction: column;
+}
+
+.out .deliverys .out1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.out .deliverys .out1 .num {
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+}
+
+.out .news {
+  margin-top: 40rpx;
+  width: 700rpx;
+  height: 420rpx;
+   background: #d1eec8;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20rpx;
+  box-shadow: 0 10px 10px rgba(85, 78, 78, 0.5);
+}
+.out .news .txt1{
+  width: 100%;
+  font-size: 50rpx;
+  height: 80rpx;
+  border-bottom: 1rpx solid rgb(184, 179, 179);
+}
+.out .news .word{
+  margin-top: 50rpx;
+  display: flex;
+  flex-direction: column;
+
+}
+.out .news .word .txt2{
+  display: flex;
+  justify-content: space-between;
+}
+.out .news .btn{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50rpx;
+}

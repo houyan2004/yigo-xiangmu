@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.ShoppingMapper">
+    <insert id="addshopping" parameterType="com.example.model.Shopping">
+        insert into shopping(shoppingid,userid,receivername,receivermobile,receiverprovince,receiverdistrict,receiveraddress,receivercity,status,createtime,updatetime)
+        values (#{shoppingid},#{userid},#{receivername},#{receivermobile},#{receiverprovince},#{receiverdistrict},#{receiveraddress},#{receivercity},#{status},#{createtime},#{updatetime})
+    </insert>
+
+</mapper>

@@ -1,0 +1,96 @@
+/* pages/order/order.wxss */
+.content-center{
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.orders{
+  height: 100%;
+  background: rgb(241, 243, 238);
+}
+.order{
+  padding-left: 32rpx;
+  margin-top: 20rpx;
+  background:#fff;
+}
+.order .header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25rpx;
+  border-bottom: 1rpx solid #f4f4f4;
+  height: 80rpx;
+  font-size: 27rpx;
+  color:  #555;
+}
+.product{
+  display: flex;
+  align-items: center;
+  height: 200rpx;
+  border-bottom: 1rpx solid #f4f4f4;
+}
+.product image{
+  width: 145rpx;
+  height: 145rpx;
+  background: #f4f4f4;
+}
+.product .info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 430rpx;
+  height: 100rpx;
+  margin-left: 20rpx;
+}
+.product .title{
+  font-size: 27rpx;
+  color:  #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.product .desc{
+  font-size: 25rpx;
+  color:  #999;
+}
+.product .status{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  width: 100rpx;
+  height: 100rpx;
+
+
+}
+.status .package{
+  font-size: 27rpx;
+  color:  #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.status .desc{
+  font-size: 25rpx;
+  color:  #b4282d;
+
+}
+.order .foot{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25rpx 0 0;
+ 
+  height: 80rpx;
+  font-size: 27rpx;
+  color:  #555;
+}
+.foot .btns{
+  display: flex;
+  justify-content: flex-end;
+ 
+}
+.foot .btns>van-button{
+  margin-right: 10rpx;
+}

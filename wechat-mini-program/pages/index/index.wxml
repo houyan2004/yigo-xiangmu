@@ -1,0 +1,82 @@
+<!--pages/index/index.wxml-->
+<view class="pagee">
+  <view class="gradient-container">
+  <view class="top">
+    <view class="search">
+    <navigator url="/pages/look/look">
+      <view class="search_in">
+        <!-- 使用代码请更改图片路径 --> 
+        <van-icon name="search" size="50rpx" color="rgb(108,211,255)"/>
+        <input type="text" placeholder="请输入搜索内容"/>
+        <view class="search_btn">搜索</view>
+      </view></navigator>
+       
+    <view class="look">
+      <van-icon name="scan" size="50rpx"/>
+    </view>
+    </view>
+  </view>
+  <view class="slide">
+    <swiper class="show" bindchange="handleChange" previous-margin="50rpx" next-margin="50rpx" circular autoplay >
+      <swiper-item class="item" wx:for="{{lunbolist}}" wx:key="id">
+        <image class="itemImg {{currentIndex == index ? 'active': ''}}"  src="{{url_bash}}{{item.src}}"></image>
+      </swiper-item>
+      
+   </swiper>
+</view>
+</view>
+<view class="fenye">
+  
+</view>
+<!-- 菜系选择部分 -->
+<view class="out">
+  <view class="classify" >
+   <view class="num"   wx:for="{{classifylist}}" wx:key="id" bind:tap="select2" data-title="{{item.id}}">
+       <navigator url="">
+          <image src="{{srcBash}}{{item.src}}"></image>
+       </navigator>
+       <text>{{item.name}}</text>
+   </view>
+</view>
+ 
+ 
+</view>
+<!-- 下面是食材选择 -->
+<view class="out1">
+  <view class="selectfood"  >
+      <View class="food" wx:for="{{foodlist}}" wx:key="id" bind:tap="select1" data-index="{{index}}" model:title="{{item.name}}">
+            <image src="{{srcBash}}{{item.src}}"></image>
+      
+        <text>{{item.name}}</text>
+      </View>
+   </view>
+</view>
+ <view class="box" flex-row>
+  <view class="pic">
+    <image src="{{url_bash}}/ljx/images/山竹.png" />
+  </view>
+ <text class="r">今日推荐,今日推荐商品会更加便宜哦</text>
+    <view class="image">
+       <image src="{{url_bash}}/ljx/images/山竹.png" />
+    </view>
+ </view>
+<view class="nav2_box"  >
+      <view class="item" wx:for="{{productList}}" wx:key="id">
+        <view class="pic1">
+          <image    src="{{url_bash}}/ljx/images/3.png"></image>
+       </view>
+         <view class="shangm">
+          <view class="img">
+          <image class="pic" src="{{url_bash}}{{item.imgurl}}" mode="" />
+        </view>
+        <view class="title">
+          <view bind:tap="go_chooseDetail_bind" data-event="{{index}}" class="text" style="font-size: 30rpx; color: rgb(134, 131, 131);">{{item.title}}</view>
+          <jiage class="jiage" jiage="{{item.price}}"></jiage>
+        </view>
+      </view>
+         </view>
+         
+    </view>
+
+</view>
+ 

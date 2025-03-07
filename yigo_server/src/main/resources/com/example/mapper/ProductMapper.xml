@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.ProductMapper">
+    <!--    -->
+    <insert id="insert_product" parameterType="com.example.model.Product">
+        insert into product(procateid, protitle, proname, proimage, subimages, prodetail, proprice, prostock, status,
+                            createTime, updateTime)
+        values (#{procateid}, #{protitle}, #{proname}, #{proimage}, #{subimages}, #{prodetail}, #{proprice},
+                #{prostock}, #{status}, #{createTime}, #{updateTime})
+    </insert>
+    <delete id="removeAllByPro" >
+        delete from product where proid in
+        <foreach collection="userIdArr" item="proid" open="(" close=")" separator=",">
+            #{proid}
+        </foreach>
+    </delete>
+    <select id="selectPage_product" resultType="com.example.model.Product">
+        select * from product
+        <if test="procateid!=null">
+            where procateid=#{procateid}
+        </if>
+        limit #{offset},#{limit}
+    </select>
+
+    <select id="sreachProduct" resultType="com.example.model.Product">
+        select proid,procateid,protitle,proimage,proprice,prostock,status,createTime,updateTime from product
+        <where>
+            <if test="proid != null and proid != ''">
+                proid=#{proid}
+            </if>
+            <if test="protitle != null and protitle != ''">
+                protitle like concat('%',#{protitle},'%')
+            </if>
+            <if test="status!=null and status !=''">
+                and status=#{status}
+            </if>
+            <if test="start!=null and end!=null">
+                and createtime between #{start} and #{end}
+            </if>
+        </where>
+        order by updatetime desc
+        <if test="limit!=0">
+            limit #{offset},#{limit}
+        </if>
+    </select>
+    <select id="countpro" resultType="java.lang.Integer">
+        select count(proid) from product
+        <where>
+            <if test="proid != null and proid != ''">
+                proid=#{proid}
+            </if>
+            <if test="protitle != null and protitle != ''">
+                protitle=#{protitle}
+            </if>
+            <if test="status!=null and status !=''">
+                and status=#{status}
+            </if>
+            <if test="start!=null and end!=null">
+                and createtime between #{start} and #{end}
+            </if>
+        </where>
+    </select>
+    <select id="seletcByNav_1" resultType="com.example.model.Product">
+        select * from product
+        where
+              procateid in (select (cateid) from procategory where parentid= #{cateid})
+        <if test="limit!=0">
+            limit #{offset},#{limit}
+        </if>
+    </select>
+</mapper>

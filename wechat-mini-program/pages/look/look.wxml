@@ -1,0 +1,46 @@
+<van-search
+  value="{{keyword }}"
+  shape="round"
+  background="#bde48a"
+  placeholder="请输入搜索关键词"
+  use-action-slot
+  bind:change="onChange"
+  bind:search="onSearch"
+  bind:clear="onClear"
+>
+<view slot="action" bind:tap="onSearch" style="color: #fff; padding: 0 30rpx;">搜索</view>
+</van-search>
+<view class="history" wx:if="{{historyList.length}}">
+  <view class="title">
+    <view class="text">搜索历史</view>
+    <view class="remove" bind:tap="removeStorageSync">
+       <van-icon name="delete-o" size="18"/> 
+       <text class="font">清空历史</text>
+    </view>
+  </view>
+  <view class="content">
+     <view class="item" wx:for="{{historyList}}" wx:key="item" bind:tap="select">{{item}}</view>
+  </view>
+</view>
+<view class="total">
+  共检索出<text>{{productList.length}}</text>个食品
+</view>
+    <view class="nav2_box" wx:if="{{total > 0}}">
+      <view class="item" wx:for="{{productList}}" wx:key="id">
+        <view class="img">
+          <image class="pic" src="{{imageBash}}{{item.proimage}}" mode="" />
+        </view>
+        <view class="title">
+          <view bind:tap="go_chooseDetail_bind" data-event="{{index}}" class="text">{{item.protitle}}</view>
+          <jiage class="jiage" jiage="{{item.proprice}}"></jiage>
+          <view class="gou">
+            <view bind:tap="go_gowuche_bind" data-event="{{index}}" class="text">加入购物车</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="hint" wx:else>
+  <van-empty image="search" description="没有搜索结果" />
+ </view>
+ 
+

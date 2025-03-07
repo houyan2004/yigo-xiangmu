@@ -1,0 +1,4 @@
+<!--pages/buySuccess/buySuccess.wxml-->
+<!--pages/buySuccess/buySuccess.wxml-->
+<image mode="widthFix" style="width: 100vw;" src="/hsb/images/buysuccess.png"></image>
+<button type="primary" style="width: 40vw;margin-top: 30vh;" bindtap="goToHome">返回首页</button>

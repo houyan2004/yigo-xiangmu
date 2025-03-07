@@ -1,0 +1,103 @@
+<!--pages/dish1/dish1.wxml-->
+
+<view class="page">
+  <view class="main">
+    <view class="top">
+      <view class="top_son1">
+        <view class="top_son1_1">
+        </view>
+        <view class="top_son1_2">
+          <image src="{{srcBash}}{{ shareImage }}" bind:tap="shareShowPopup"></image>
+        </view>
+      </view>
+      <view class="top_son2">
+        <view class="swiper-container">
+          <swiper class="swiper" indicator-dots="{{false}}" autoplay="{{true}}" interval="{{3000}}" duration="{{500}}" current="{{swiperCurrent}}" bindchange="swiperChange">
+            <block wx:for="{{swiperList}}" wx:key="unique">
+              <swiper-item>
+                <image src="{{srcBash}}{{item}}" style="width: 100%;" mode="widthFix" data-src="{{item}}" data-urls="{{swiperList}}" bindtap="previewImage" />
+              </swiper-item>
+            </block>
+          </swiper>
+          <view class="custom-indicator">
+            {{swiperCurrent + 1}}/{{swiperList.length}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="botom">
+      <view class="dish-info">
+        <view class="dish-name">
+          {{dishName}}
+        </view>
+        <view>
+          <jaige jiage="{{dishPrice}}"></jaige>
+        </view>
+      </view>
+      <van-divider contentPosition="center" customStyle="color: green; border-color: green; font-size: 60rpx;">
+        详情
+      </van-divider>
+      <view>
+        <block wx:for="{{imageList}}" wx:key="unique">
+          <image src="{{srcBash}}{{item}}" mode="widthFix" style="width: 100%;" />
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <van-goods-action>
+    <van-goods-action-icon color="#00ff00" icon="wap-home-o" text="首页" />
+    <van-goods-action-icon color="rgba(227, 60, 100, 1)" icon="star-o" text="收藏" />
+    <van-goods-action-icon color="rgba(255, 141, 26, 1)" icon="cart-o" text="购物车" />
+    <van-goods-action-button color="rgba(212, 48, 48, 1)" text="立即购买" bindtap="buyShowPopup" />
+  </van-goods-action>
+</view>
+
+<van-popup show="{{ buyShow }}" closeable close-icon="close" position="bottom" custom-style="height: 70%;" bind:close="buyOnClose">
+  <view class="buy_Tan">
+    <view style="width: 100%; font-size: 64rpx; color: rgba(0, 69, 33, 1);">
+      {{dishName}}
+    </view>
+    <view style="display: flex; font-size: 44rpx; flex-direction: row;margin-bottom: 25rpx;">
+      <view style="flex-basis: 70%;color: rgba(0, 112, 54, 1);">所需材料随心搭配</view>
+      <van-stepper value="{{ dishNum }}" bind:change="onChangeNum" min="0" />
+    </view>
+    <scroll-view style="width: 100%;height: 50vh; margin-bottom: rpx;" 	scroll-y>
+      <view style="display: flex; flex-direction: row; width: 100%;flex-wrap: wrap;">
+        <block wx:for="{{ingredientsList}}" wx:key="unique">
+          <view class="food" > 
+            <van-checkbox value="{{item.checked}}" checked-color="green" data-foodindex="{{index}}" bind:change="onChange">
+            <image src="{{item.image}}" style="width: 132rpx;"mode="widthFix"/>
+            <view>{{item.foodName}}</view>
+            <view>{{item.foodprice}}元</view>
+            </van-checkbox>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+    <view style="bottom: 0rpx; position: absolute;width: 100%;">
+    <button style="background-color: yellow;width: 100%;height: 130rpx;font-size: 50rpx;">共计{{totalPrice}}</button>
+    </view>
+  </view>
+</van-popup>
+
+
+<van-popup show="{{ shareShow }}" closeable position="bottom" custom-style="height: 40%" bind:close="shareOnClose">
+  <view class="share_Tan">
+    <view class="share_Tan_Title">分享</view>
+    <view class="share_Tan_Content">
+      <view>
+        <van-icon name="wechat" size="158rpx" color="rgba(49, 189, 105, 1)" bindtap="" />
+        <text style="font-size: 54rpx;">
+          微信好友
+        </text>
+      </view>
+      <view>
+        <van-icon name="photo" size="158rpx" color="rgba(171, 238, 255, 1)" />
+        <text style="font-size: 54rpx;">
+          一键生成海报
+        </text>
+      </view>
+    </view>
+  </view>
+</van-popup>

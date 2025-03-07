@@ -1,0 +1,7 @@
+var text_filter = function (params) {
+  
+}
+ 
+module.exports = {
+  text_filter:text_filter
+}

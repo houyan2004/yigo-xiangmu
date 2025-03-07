@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.UserMapper">
+    <delete id="removeAllByUserId">
+        delete from user where userid in
+        <foreach collection="userIdList" item="userid" open="(" close=")" separator=",">
+            #{userid}
+        </foreach>
+    </delete>
+
+    <select id="findUserByPage" resultType="com.example.model.User">
+        select *
+        from user
+        <where>
+        <if test="id!=null">
+         userid=#{id}
+        </if>
+        <if test="username!=null and username !=''">
+         username like concat('%',#{username},'%')
+        </if>
+        <if test="phone!=null and phone !='' ">
+         phone like concat(#{phone},'%')
+        </if>
+        <if test="sex!=null and sex !=''">
+            and sex=#{sex}
+        </if>
+        <if test="status!=null and status !=''">
+            and status=#{status}
+        </if>
+        <if test="start!=null and end!=null">
+            and createtime between #{start} and #{end}
+        </if>
+        </where>
+        order by updatetime desc
+        <if test="limit!=0">
+            limit #{offset},#{limit}
+        </if>
+
+    </select>
+    <select id="count" resultType="java.lang.Integer">
+        select count(userid) from user
+        <where>
+            <if test="id!=null">
+                userid=#{id}
+            </if>
+            <if test="username!=null and username !=''">
+                username like concat('%',#{username},'%')
+            </if>
+            <if test="phone!=null and phone !='' ">
+                phone=#{phone}
+            </if>
+            <if test="sex!=null and sex !=''">
+                and sex=#{sex}
+            </if>
+            <if test="status!=null and status !=''">
+                and status=#{status}
+            </if>
+            <if test="start!=null and end!=null">
+                and createtime between #{start} and #{end}
+            </if>
+        </where>
+    </select>
+</mapper>

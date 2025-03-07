@@ -1,0 +1,68 @@
+<!--pages/choose/choose.wxml-->
+<view class="body_box">
+  <view class="nav_content" style="{{isNavZhanKai?'height: 670rpx;border-radius:20rpx;border-top-left-radius: 0;border-top-right-radius: 0;':''}}">
+    <view class="search">
+      <input value="" 	bindfocus="input_focus" placeholder="请输入..." class="sch" type="text" bindinput="goSearch" />
+      <view hover-class="btn_hover" data-h1="{{search_text}}" hover-stop-propagation
+      hover-stay-time="{{100}}"
+       bindtap="do_serarch_bind"  class="btn">搜索</view>
+    </view>
+
+    <!-- // 一级分类 -->
+    <view class="nav" style="{{isNavZhanKai?'justify-content:space-around':''}}">
+      <view wx:if="{{!isNavZhanKai}}" class="puan" hover-stop-propagation bind:tap="zhangkai_bind">
+        <image class="pic" src="/hy/image/cion/进入.png" mode="aspectFill" />
+        <text>全部</text>
+      </view>
+      <scroll-view class="{{!isNavZhanKai?'scllor':'scllor-ant'}}" scroll-x="{{isNavZhanKai?false:true}}" enable-flex>
+        <view bind:tap="onClick_nav1" data-even="{{index}}" wx:for="{{nav_1}}" wx:key="cateid" class="nav_zi" style="{{isNavZhanKai?'margin-left:0;':''}}">
+          <view class="nav_zi_shang">
+            <image class="pic" src="{{item.img}}" mode="aspectFill" />
+          </view>
+          <view class="nav_zi_xia" style="{{isNavZhanKai?'background: rgba(35, 155, 93, 1);':index==nav1_index?'background: rgba(35, 155, 93, 1);':''}}"><text class="text">{{item.name}}</text></view>
+        </view>
+      </scroll-view>
+    </view>
+    <view wx:if="{{isNavZhanKai}}" class="shouqi" bind:tap="shouqi_bind">点击收起
+      <image class="pic" src="/hy/image/cion/进入.png" mode="aspectFill" />
+    </view>
+  </view>
+
+  <!-- 二级分类 -->
+  <view class="mask_fu">
+    <view wx:if="{{isNavZhanKai}}" class="maskView"></view>
+    <view class="nav_list">
+      <van-tabs id="tabs"
+ bind:click="onClick_nav2" color="rgba(35, 155, 93, 1)" active="{{active_index}}" swipeable>
+        <van-tab title-style="font-size:36rpx" wx:for="{{nav_2}}" wx:key="index" title="{{item.name}}">
+        </van-tab>
+      </van-tabs>
+      <!-- 三级 -->
+      <van-tabs bind:click="onClick_nav3" active="{{0}}" class="my-tabs" swipeable>
+        <van-tab title-style="font-size:36rpx;font-weight: 700;" wx:for="{{nav_3}}" wx:key="index" title="{{item}}">
+        </van-tab>
+      </van-tabs>
+    </view>
+
+<!-- 列表数据 -->
+    <view class="nav2_box">
+      <view class="item" wx:for="{{arrData}}" wx:key="id">
+        <view class="img">
+
+          <image class="pic" src="{{url_bash}}{{item.proimage}}" mode="" />
+        </view>
+        <view class="title">
+          <view bind:tap="go_chooseDetail_bind" data-event="{{index}}" class="text">{{item.protitle}}</view>
+          <jiage class="jiage" jiage="{{item.proprice}}"></jiage>
+          <view class="gou">
+            <view bind:tap="go_gowuche_bind" data-event="{{index}}" class="text">加入购物车</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="shangNaJiaZai">
+    <text>(((ﾟдﾟ))) 亲，我是有底线的！</text>
+    </view>
+  </view>
+
+</view>

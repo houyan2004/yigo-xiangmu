@@ -1,0 +1,70 @@
+<view class="out">
+  <view class="view">
+   <map id="map" 
+   longitude="{{longitude}}"   
+   latitude="{{latitude}}"     
+   show-location="true" >      
+   </map>
+</view>
+
+    <view class="deliverys">
+       <view class="txt">
+          <text style="font-size: 50rpx;">骑手正在配送</text>
+          <text>预计送达时间:</text>
+          <text style="font-size: 80rpx; color: rgb(233, 167, 24);">10:00-10:15</text>
+          <view class="txt1">
+            <van-icon name="certificate" color="green"/>
+            <text style="color: rgb(14, 14, 13); font-size: 45rpx;" >准时保障</text>
+            <text> 10：15未送达，可获赔 </text>
+            <text style="color: red;">￥2</text>
+          </view>
+          <view class="out1">
+             <view class="num">
+              <van-icon name="records-o"size="80rpx" />
+              <text>修改订单信息</text>
+             </view>
+             <view class="num">
+              <van-icon name="shop-collect-o" size="80rpx"/>
+              <text>联系平台</text>
+             </view>
+             <view class="num">
+              <van-icon name="phone-o"size="80rpx" />
+              <text>联系骑手</text>
+             </view>
+             <view class="num">
+              <van-icon name="friends-o" size="80rpx"/>
+              <text>申请售后</text>
+             </view>
+          </view>
+       </view>
+    </view>
+    <view class="news">
+        <text class="txt1">配送信息</text>
+      <view class="word">
+          <view class="txt2">
+          <text style="font-size: 50rpx;">期望时间</text>
+          <text>立即配送</text>
+        </view>
+          <view class="txt2">
+          <text style="font-size: 50rpx;">配送地址</text>
+          <text>山水家园|2号楼2单元202室</text>
+        </view>
+          <view class="txt2">
+          <text style="font-size: 50rpx;">骑手信息</text>
+          <text>无人机5号</text>
+        </view>
+        <view class="txt2">
+          <text style="font-size: 50rpx;">致电频台</text>
+          <text>110-11912012315</text>
+        </view>
+        </view>
+         <view class="btn">
+          <van-button round type="info" color="orange">延长收货</van-button>
+          <van-button round type="info" color="orange">确认收货</van-button>
+         </view>
+      
+     
+     </view>
+
+
+</view>
